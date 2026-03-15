@@ -1,0 +1,1011 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+<title>L'Essence de Beauté — Salon de Beauté Luxe Paris</title>
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,500;0,700;1,400;1,500&family=Montserrat:wght@300;400;500;600&display=swap" rel="stylesheet"/>
+<style>
+*{margin:0;padding:0;box-sizing:border-box;}
+:root{
+  --gold:#C9A84C;
+  --gold-light:#E8D5A3;
+  --gold-pale:#F7F0DC;
+  --nude:#F5F0E8;
+  --nude-dark:#EDE5D4;
+  --charcoal:#2C2C2A;
+  --charcoal-soft:#4A4845;
+  --white:#FEFCF8;
+  --text-muted:#8A8278;
+}
+html{scroll-behavior:smooth;}
+body{
+  font-family:'Montserrat',sans-serif;
+  background:var(--white);
+  color:var(--charcoal);
+  overflow-x:hidden;
+}
+h1,h2,h3,h4{font-family:'Playfair Display',serif;}
+
+/* ── ANIMATIONS ── */
+@keyframes fadeUp{from{opacity:0;transform:translateY(32px);}to{opacity:1;transform:translateY(0);}}
+@keyframes fadeIn{from{opacity:0;}to{opacity:1;}}
+@keyframes float{0%,100%{transform:translateY(0);}50%{transform:translateY(-6px);}}
+@keyframes pulse{0%,100%{box-shadow:0 0 0 0 rgba(201,168,76,0.4);}50%{box-shadow:0 0 0 12px rgba(201,168,76,0);}}
+
+.reveal{opacity:0;transform:translateY(28px);transition:opacity 0.8s cubic-bezier(0.22,1,0.36,1),transform 0.8s cubic-bezier(0.22,1,0.36,1);}
+.reveal.visible{opacity:1;transform:translateY(0);}
+.reveal-delay-1{transition-delay:0.1s;}
+.reveal-delay-2{transition-delay:0.22s;}
+.reveal-delay-3{transition-delay:0.36s;}
+
+/* ── HEADER ── */
+header{
+  position:fixed;top:0;left:0;right:0;z-index:100;
+  padding:0 2rem;
+  display:flex;align-items:center;justify-content:space-between;
+  height:68px;
+  background:rgba(254,252,248,0.88);
+  backdrop-filter:blur(12px);
+  border-bottom:0.5px solid rgba(201,168,76,0.18);
+  transition:background 0.3s;
+}
+.logo{
+  font-family:'Playfair Display',serif;
+  font-size:1.15rem;
+  font-style:italic;
+  color:var(--charcoal);
+  letter-spacing:0.04em;
+  line-height:1.2;
+}
+.logo span{color:var(--gold);}
+nav{display:flex;gap:2rem;align-items:center;}
+nav a{
+  font-size:0.72rem;
+  font-weight:500;
+  letter-spacing:0.12em;
+  text-transform:uppercase;
+  color:var(--charcoal-soft);
+  text-decoration:none;
+  transition:color 0.2s;
+}
+nav a:hover{color:var(--gold);}
+.btn-nav{
+  background:var(--gold);
+  color:var(--white)!important;
+  padding:0.55rem 1.4rem;
+  border-radius:2px;
+  font-size:0.7rem!important;
+  letter-spacing:0.16em;
+  text-transform:uppercase;
+  font-weight:600!important;
+  transition:background 0.2s,transform 0.2s!important;
+}
+.btn-nav:hover{background:var(--charcoal)!important;transform:translateY(-1px);}
+.hamburger{display:none;flex-direction:column;gap:5px;cursor:pointer;padding:4px;}
+.hamburger span{width:22px;height:1.5px;background:var(--charcoal);transition:all 0.3s;}
+
+/* ── HERO ── */
+.hero{
+  position:relative;
+  height:100vh;min-height:600px;
+  display:flex;align-items:center;justify-content:center;
+  overflow:hidden;
+}
+.hero-bg{
+  position:absolute;inset:0;
+  background-image:url('https://images.unsplash.com/photo-1560066984-138dadb4c035?w=1600&q=85');
+  background-size:cover;background-position:center 30%;
+  transform:scale(1.05);
+  transition:transform 8s ease-out;
+}
+.hero-bg.loaded{transform:scale(1);}
+.hero-overlay{
+  position:absolute;inset:0;
+  background:linear-gradient(160deg,rgba(44,44,42,0.55) 0%,rgba(44,44,42,0.3) 50%,rgba(201,168,76,0.12) 100%);
+}
+.hero-content{
+  position:relative;z-index:2;
+  text-align:center;
+  padding:0 1.5rem;
+  animation:fadeUp 1.2s cubic-bezier(0.22,1,0.36,1) 0.3s both;
+}
+.hero-eyebrow{
+  font-size:0.68rem;
+  font-weight:600;
+  letter-spacing:0.28em;
+  text-transform:uppercase;
+  color:var(--gold-light);
+  margin-bottom:1.2rem;
+  display:block;
+}
+.hero h1{
+  font-size:clamp(2.6rem,6vw,5rem);
+  font-weight:500;
+  color:#FEFCF8;
+  line-height:1.15;
+  margin-bottom:1.2rem;
+  text-shadow:0 2px 32px rgba(0,0,0,0.18);
+}
+.hero h1 em{font-style:italic;color:var(--gold-light);}
+.hero p{
+  font-size:0.92rem;
+  color:rgba(254,252,248,0.8);
+  letter-spacing:0.06em;
+  margin-bottom:2.4rem;
+  font-weight:300;
+  max-width:420px;
+  margin-left:auto;margin-right:auto;
+}
+.btn-primary{
+  display:inline-block;
+  background:transparent;
+  color:var(--white);
+  border:1px solid rgba(254,252,248,0.6);
+  padding:1rem 2.8rem;
+  font-size:0.72rem;
+  font-weight:600;
+  letter-spacing:0.2em;
+  text-transform:uppercase;
+  text-decoration:none;
+  cursor:pointer;
+  transition:all 0.3s;
+  font-family:'Montserrat',sans-serif;
+  position:relative;
+  overflow:hidden;
+}
+.btn-primary::before{
+  content:'';
+  position:absolute;inset:0;
+  background:var(--gold);
+  transform:translateX(-100%);
+  transition:transform 0.4s cubic-bezier(0.22,1,0.36,1);
+  z-index:-1;
+}
+.btn-primary:hover::before{transform:translateX(0);}
+.btn-primary:hover{border-color:var(--gold);}
+.hero-scroll{
+  position:absolute;bottom:2.5rem;left:50%;transform:translateX(-50%);
+  display:flex;flex-direction:column;align-items:center;gap:8px;
+  color:rgba(254,252,248,0.5);
+  font-size:0.6rem;letter-spacing:0.2em;text-transform:uppercase;
+  animation:float 2.4s ease-in-out infinite;
+}
+.scroll-line{width:1px;height:40px;background:linear-gradient(to bottom,rgba(254,252,248,0.5),transparent);}
+
+/* ── SECTION HELPERS ── */
+section{padding:6rem 2rem;}
+.section-label{
+  font-size:0.62rem;
+  font-weight:600;
+  letter-spacing:0.28em;
+  text-transform:uppercase;
+  color:var(--gold);
+  display:block;margin-bottom:0.8rem;
+}
+.section-title{
+  font-size:clamp(1.8rem,3.5vw,2.8rem);
+  font-weight:500;
+  line-height:1.2;
+  color:var(--charcoal);
+}
+.section-title em{font-style:italic;color:var(--gold);}
+.section-sub{
+  font-size:0.85rem;
+  color:var(--text-muted);
+  font-weight:300;
+  line-height:1.8;
+  max-width:480px;
+  margin-top:1rem;
+}
+.container{max-width:1140px;margin:0 auto;}
+.text-center{text-align:center;}
+.text-center .section-sub{margin-left:auto;margin-right:auto;}
+
+/* ── SERVICES ── */
+.services-section{background:var(--nude);}
+.services-grid{
+  display:grid;
+  grid-template-columns:repeat(3,1fr);
+  gap:1.5rem;
+  margin-top:3.5rem;
+}
+.service-card{
+  background:var(--white);
+  padding:2.8rem 2rem;
+  position:relative;
+  overflow:hidden;
+  cursor:pointer;
+  transition:transform 0.4s cubic-bezier(0.22,1,0.36,1);
+}
+.service-card::before{
+  content:'';
+  position:absolute;
+  bottom:0;left:0;right:0;
+  height:3px;
+  background:linear-gradient(90deg,var(--gold-light),var(--gold),var(--gold-light));
+  background-size:200% 100%;
+  transform:scaleX(0);
+  transform-origin:left;
+  transition:transform 0.4s cubic-bezier(0.22,1,0.36,1);
+}
+.service-card:hover::before{transform:scaleX(1);}
+.service-card:hover{transform:translateY(-6px);}
+.service-card-img{
+  width:100%;height:220px;
+  object-fit:cover;
+  margin-bottom:1.8rem;
+  filter:brightness(0.95);
+  transition:filter 0.4s,transform 0.5s;
+}
+.service-card:hover .service-card-img{filter:brightness(1.02);transform:scale(1.02);}
+.service-icon-wrap{
+  width:48px;height:48px;
+  border:1px solid var(--gold-light);
+  display:flex;align-items:center;justify-content:center;
+  margin-bottom:1.4rem;
+  background:var(--gold-pale);
+}
+.service-icon{width:20px;height:20px;color:var(--gold);}
+.service-card h3{
+  font-size:1.15rem;
+  font-weight:500;
+  margin-bottom:0.7rem;
+  color:var(--charcoal);
+}
+.service-card p{
+  font-size:0.82rem;
+  color:var(--text-muted);
+  line-height:1.8;
+  font-weight:300;
+}
+.service-price{
+  margin-top:1.4rem;
+  font-size:0.7rem;
+  letter-spacing:0.16em;
+  text-transform:uppercase;
+  color:var(--gold);
+  font-weight:600;
+}
+
+/* ── BEFORE/AFTER SLIDER ── */
+.ba-section{background:var(--charcoal);color:var(--white);}
+.ba-section .section-title{color:var(--white);}
+.ba-section .section-sub{color:rgba(254,252,248,0.55);}
+.ba-wrapper{
+  position:relative;
+  max-width:760px;margin:3.5rem auto 0;
+  overflow:hidden;
+  cursor:ew-resize;
+  user-select:none;
+  box-shadow:0 32px 80px rgba(0,0,0,0.4);
+}
+.ba-before,.ba-after{
+  position:absolute;top:0;left:0;width:100%;height:100%;
+}
+.ba-before img,.ba-after img{
+  width:100%;height:100%;
+  object-fit:cover;display:block;
+}
+.ba-after{clip-path:inset(0 50% 0 0);}
+.ba-handle{
+  position:absolute;top:0;left:50%;
+  width:2px;height:100%;
+  background:var(--white);
+  transform:translateX(-50%);
+  z-index:10;
+}
+.ba-handle-btn{
+  position:absolute;top:50%;left:50%;
+  transform:translate(-50%,-50%);
+  width:48px;height:48px;
+  background:var(--white);
+  border-radius:50%;
+  display:flex;align-items:center;justify-content:center;
+  box-shadow:0 4px 24px rgba(0,0,0,0.25);
+}
+.ba-handle-btn svg{width:20px;height:20px;color:var(--charcoal);}
+.ba-label{
+  position:absolute;bottom:1.2rem;
+  font-size:0.62rem;
+  letter-spacing:0.18em;
+  text-transform:uppercase;
+  color:var(--white);
+  background:rgba(44,44,42,0.6);
+  padding:0.4rem 0.9rem;
+  backdrop-filter:blur(4px);
+  font-weight:500;
+}
+.ba-label-before{left:1.2rem;}
+.ba-label-after{right:1.2rem;}
+
+/* ── BOOKING ── */
+.booking-section{background:var(--nude);}
+.booking-wrap{
+  max-width:620px;margin:3.5rem auto 0;
+  background:var(--white);
+  padding:3rem 3rem 2.8rem;
+  position:relative;
+}
+.booking-wrap::before{
+  content:'';
+  position:absolute;top:0;left:0;right:0;
+  height:3px;
+  background:linear-gradient(90deg,var(--gold-light),var(--gold));
+}
+.form-row{display:grid;grid-template-columns:1fr 1fr;gap:1.2rem;margin-bottom:1.2rem;}
+.form-group{display:flex;flex-direction:column;}
+.form-group label{
+  font-size:0.65rem;
+  letter-spacing:0.18em;
+  text-transform:uppercase;
+  color:var(--text-muted);
+  font-weight:600;
+  margin-bottom:0.5rem;
+}
+.form-group select,
+.form-group input{
+  border:0.5px solid rgba(44,44,42,0.2);
+  border-radius:0;
+  padding:0.85rem 1rem;
+  font-family:'Montserrat',sans-serif;
+  font-size:0.82rem;
+  color:var(--charcoal);
+  background:var(--white);
+  outline:none;
+  transition:border-color 0.2s;
+  appearance:none;
+  -webkit-appearance:none;
+}
+.form-group select:focus,
+.form-group input:focus{border-color:var(--gold);}
+.form-full{grid-column:1/-1;}
+.btn-book{
+  width:100%;
+  background:var(--charcoal);
+  color:var(--white);
+  border:none;
+  padding:1.1rem 2rem;
+  font-family:'Montserrat',sans-serif;
+  font-size:0.72rem;
+  font-weight:600;
+  letter-spacing:0.2em;
+  text-transform:uppercase;
+  cursor:pointer;
+  transition:background 0.3s;
+  margin-top:0.8rem;
+}
+.btn-book:hover{background:var(--gold);}
+.booking-note{
+  text-align:center;
+  font-size:0.72rem;
+  color:var(--text-muted);
+  margin-top:1.4rem;
+  font-weight:300;
+}
+
+/* ── TESTIMONIALS ── */
+.testimonials-section{background:var(--white);}
+.testimonials-track{
+  display:flex;gap:1.5rem;
+  margin-top:3rem;
+  overflow-x:auto;
+  scroll-snap-type:x mandatory;
+  -webkit-overflow-scrolling:touch;
+  padding-bottom:1rem;
+  scrollbar-width:none;
+}
+.testimonials-track::-webkit-scrollbar{display:none;}
+.testimonial-card{
+  min-width:320px;
+  background:var(--nude);
+  padding:2rem 1.8rem;
+  scroll-snap-align:start;
+  flex-shrink:0;
+  position:relative;
+}
+.testimonial-card::before{
+  content:'\275D';
+  font-family:'Playfair Display',serif;
+  font-size:4rem;
+  color:var(--gold-light);
+  position:absolute;
+  top:-0.5rem;left:1.2rem;
+  line-height:1;
+}
+.testimonial-text{
+  font-size:0.85rem;
+  line-height:1.9;
+  color:var(--charcoal-soft);
+  font-style:italic;
+  font-family:'Playfair Display',serif;
+  margin-top:1.2rem;
+}
+.testimonial-author{margin-top:1.4rem;display:flex;align-items:center;gap:0.8rem;}
+.author-avatar{
+  width:40px;height:40px;border-radius:50%;
+  object-fit:cover;border:2px solid var(--gold-light);
+}
+.author-info p{font-size:0.78rem;font-weight:600;color:var(--charcoal);}
+.author-info span{font-size:0.68rem;color:var(--text-muted);letter-spacing:0.08em;}
+.stars{color:var(--gold);font-size:0.72rem;letter-spacing:2px;margin-bottom:2px;}
+
+/* ── INSTAGRAM ── */
+.instagram-section{background:var(--nude);}
+.insta-grid{
+  display:grid;
+  grid-template-columns:repeat(6,1fr);
+  gap:4px;
+  margin-top:2.5rem;
+}
+.insta-item{
+  aspect-ratio:1;
+  overflow:hidden;
+  position:relative;
+}
+.insta-item img{
+  width:100%;height:100%;
+  object-fit:cover;
+  transition:transform 0.6s cubic-bezier(0.22,1,0.36,1),filter 0.4s;
+}
+.insta-item:hover img{transform:scale(1.08);filter:brightness(0.85);}
+.insta-overlay{
+  position:absolute;inset:0;
+  display:flex;align-items:center;justify-content:center;
+  opacity:0;transition:opacity 0.3s;
+  color:white;font-size:0.7rem;letter-spacing:0.12em;
+  background:rgba(44,44,42,0.35);
+}
+.insta-item:hover .insta-overlay{opacity:1;}
+.insta-handle{
+  text-align:center;
+  margin-top:1.8rem;
+  font-size:0.78rem;
+  color:var(--text-muted);
+  letter-spacing:0.12em;
+}
+.insta-handle a{color:var(--gold);text-decoration:none;font-weight:600;}
+
+/* ── INFO STRIP ── */
+.info-strip{
+  background:var(--charcoal);
+  padding:3rem 2rem;
+  display:grid;
+  grid-template-columns:repeat(3,1fr);
+  gap:2rem;
+  text-align:center;
+}
+.info-item{
+  display:flex;flex-direction:column;align-items:center;gap:0.8rem;
+}
+.info-icon{
+  width:36px;height:36px;
+  border:1px solid rgba(201,168,76,0.3);
+  display:flex;align-items:center;justify-content:center;
+}
+.info-icon svg{width:16px;height:16px;color:var(--gold);}
+.info-item h4{
+  font-size:0.7rem;
+  letter-spacing:0.18em;
+  text-transform:uppercase;
+  color:var(--gold);
+  font-family:'Montserrat',sans-serif;
+}
+.info-item p{font-size:0.8rem;color:rgba(254,252,248,0.6);font-weight:300;line-height:1.7;}
+
+/* ── FOOTER ── */
+footer{
+  background:var(--charcoal);
+  border-top:0.5px solid rgba(201,168,76,0.2);
+  padding:2rem;
+  display:flex;
+  align-items:center;
+  justify-content:space-between;
+  flex-wrap:wrap;
+  gap:1rem;
+}
+.footer-logo{font-family:'Playfair Display',serif;font-style:italic;color:rgba(254,252,248,0.4);font-size:0.9rem;}
+.footer-copy{font-size:0.7rem;color:rgba(254,252,248,0.3);letter-spacing:0.08em;}
+
+/* ── WHATSAPP ── */
+.whatsapp-btn{
+  position:fixed;
+  bottom:5.5rem;right:1.5rem;
+  width:52px;height:52px;
+  background:#25D366;
+  border-radius:50%;
+  display:flex;align-items:center;justify-content:center;
+  z-index:200;
+  box-shadow:0 4px 20px rgba(37,211,102,0.35);
+  animation:pulse 2.5s ease-in-out infinite;
+  cursor:pointer;
+  text-decoration:none;
+  transition:transform 0.2s;
+}
+.whatsapp-btn:hover{transform:scale(1.1);}
+.whatsapp-btn svg{width:26px;height:26px;fill:white;}
+
+/* ── MOBILE BOTTOM NAV ── */
+.bottom-nav{
+  display:none;
+  position:fixed;bottom:0;left:0;right:0;
+  background:rgba(254,252,248,0.96);
+  backdrop-filter:blur(12px);
+  border-top:0.5px solid rgba(201,168,76,0.2);
+  z-index:150;
+  height:60px;
+  align-items:center;justify-content:space-around;
+}
+.bottom-nav-item{
+  display:flex;flex-direction:column;align-items:center;gap:3px;
+  font-size:0.55rem;letter-spacing:0.1em;text-transform:uppercase;
+  color:var(--text-muted);font-weight:600;
+  cursor:pointer;padding:0 0.5rem;
+  transition:color 0.2s;
+  text-decoration:none;
+}
+.bottom-nav-item svg{width:18px;height:18px;}
+.bottom-nav-item.active{color:var(--gold);}
+.bottom-nav-rdv{
+  background:var(--gold);
+  color:var(--white)!important;
+  padding:0.6rem 1.2rem!important;
+  border-radius:2px;
+  font-size:0.6rem!important;
+}
+
+/* ── RESPONSIVE ── */
+@media(max-width:900px){
+  .services-grid{grid-template-columns:1fr 1fr;}
+  .insta-grid{grid-template-columns:repeat(3,1fr);}
+  .info-strip{grid-template-columns:1fr;}
+  nav{display:none;}
+  .hamburger{display:flex;}
+}
+@media(max-width:640px){
+  section{padding:4rem 1.2rem;}
+  .services-grid{grid-template-columns:1fr;}
+  .insta-grid{grid-template-columns:repeat(3,1fr);}
+  .bottom-nav{display:flex;}
+  .booking-wrap{padding:2rem 1.4rem;}
+  .form-row{grid-template-columns:1fr;}
+  footer{flex-direction:column;text-align:center;}
+  .hero h1{font-size:2.4rem;}
+  .info-strip{padding:2rem 1.2rem;}
+}
+</style>
+</head>
+<body>
+
+<!-- ═══════════════════════════════════
+     HEADER
+════════════════════════════════════ -->
+<header id="header">
+  <div class="logo">L'<span>Essence</span> de Beauté</div>
+  <nav>
+    <a href="#services">Services</a>
+    <a href="#transformations">Portfolio</a>
+    <a href="#testimonials">Avis</a>
+    <a href="#booking" class="btn-nav">Réserver</a>
+  </nav>
+  <div class="hamburger" onclick="toggleMenu()">
+    <span></span><span></span><span></span>
+  </div>
+</header>
+
+<!-- ═══════════════════════════════════
+     HERO
+════════════════════════════════════ -->
+<section class="hero" id="home">
+  <div class="hero-bg" id="heroBg"></div>
+  <div class="hero-overlay"></div>
+  <div class="hero-content">
+    <span class="hero-eyebrow">Salon de Beauté Luxe · Paris</span>
+    <h1>Révélez votre<br><em>beauté naturelle</em></h1>
+    <p>Une expérience sensorielle unique au cœur du luxe parisien</p>
+    <a href="#booking" class="btn-primary">Prendre RDV</a>
+  </div>
+  <div class="hero-scroll">
+    <div class="scroll-line"></div>
+    Découvrir
+  </div>
+</section>
+
+<!-- ═══════════════════════════════════
+     SERVICES
+════════════════════════════════════ -->
+<section class="services-section" id="services">
+  <div class="container">
+    <div class="text-center reveal">
+      <span class="section-label">Nos Expertises</span>
+      <h2 class="section-title">L'art de la <em>mise en beauté</em></h2>
+      <p class="section-sub">Chaque prestation est pensée comme un rituel, alliant savoir-faire artisanal et produits d'exception.</p>
+    </div>
+    <div class="services-grid">
+
+      <!-- Card 1 -->
+      <div class="service-card reveal reveal-delay-1">
+        <img class="service-card-img"
+             src="https://images.unsplash.com/photo-1522337360788-8b13dee7a37e?w=600&q=80"
+             alt="Coiffure & Coloration" loading="lazy"/>
+        <div class="service-icon-wrap">
+          <svg class="service-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
+            <path d="M6 3c0 3 2 5 2 8s-2 5-2 8M18 3c0 3-2 5-2 8s2 5 2 8M6 11h12M6 13h12"/>
+          </svg>
+        </div>
+        <h3>Coiffure &amp; Coloration</h3>
+        <p>Coupes architecturales, balayages soleil, colorations botaniques et soins restructurants haute couture.</p>
+        <div class="service-price">À partir de 85 €</div>
+      </div>
+
+      <!-- Card 2 -->
+      <div class="service-card reveal reveal-delay-2">
+        <img class="service-card-img"
+             src="https://images.unsplash.com/photo-1487412947147-5cebf100ffc2?w=600&q=80"
+             alt="Maquillage Professionnel" loading="lazy"/>
+        <div class="service-icon-wrap">
+          <svg class="service-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
+            <path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/>
+          </svg>
+        </div>
+        <h3>Maquillage Professionnel</h3>
+        <p>Mariages, événements, shootings. Un art délicat entre naturel sublimé et sophistication contemporaine.</p>
+        <div class="service-price">À partir de 120 €</div>
+      </div>
+
+      <!-- Card 3 -->
+      <div class="service-card reveal reveal-delay-3">
+        <img class="service-card-img"
+             src="https://images.unsplash.com/photo-1570172619644-dfd03ed5d881?w=600&q=80"
+             alt="Soins Visage & Spa" loading="lazy"/>
+        <div class="service-icon-wrap">
+          <svg class="service-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
+            <path d="M12 22c4.418 0 8-3.582 8-8 0-3.5-2-6.5-5-7.5-.5 1-1.5 2-3 2.5C10.5 10 9 8 9 6c0 0-5 3-5 8 0 4.418 3.582 8 8 8z"/>
+          </svg>
+        </div>
+        <h3>Soins Visage &amp; Spa</h3>
+        <p>Rituels visage anti-âge, massages signature et enveloppements précieux aux huiles botaniques rares.</p>
+        <div class="service-price">À partir de 95 €</div>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<!-- ═══════════════════════════════════
+     BEFORE / AFTER SLIDER
+════════════════════════════════════ -->
+<section class="ba-section" id="transformations">
+  <div class="container">
+    <div class="text-center reveal">
+      <span class="section-label" style="color:var(--gold-light);">Transformations</span>
+      <h2 class="section-title">Avant / <em style="color:var(--gold-light);">Après</em></h2>
+      <p class="section-sub">Glissez le curseur pour découvrir nos métamorphoses capillaires</p>
+    </div>
+
+    <div class="ba-wrapper" id="baWrapper" style="height:480px;">
+      <div class="ba-before">
+        <img src="https://images.unsplash.com/photo-1580618672591-eb180b1a973f?w=800&q=80" alt="Avant"/>
+      </div>
+      <div class="ba-after" id="baAfter">
+        <img src="https://images.unsplash.com/photo-1521590832167-7bcbfaa6381f?w=800&q=80" alt="Après"/>
+      </div>
+      <div class="ba-handle" id="baHandle">
+        <div class="ba-handle-btn">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+            <path d="M8 12H4M4 12l3-3M4 12l3 3M16 12h4M20 12l-3-3M20 12l-3 3"/>
+          </svg>
+        </div>
+      </div>
+      <div class="ba-label ba-label-before">Avant</div>
+      <div class="ba-label ba-label-after">Après</div>
+    </div>
+  </div>
+</section>
+
+<!-- ═══════════════════════════════════
+     BOOKING
+════════════════════════════════════ -->
+<section class="booking-section" id="booking">
+  <div class="container">
+    <div class="text-center reveal">
+      <span class="section-label">Réservation</span>
+      <h2 class="section-title">Prenez <em>rendez-vous</em></h2>
+      <p class="section-sub">Réservez votre moment de beauté en quelques instants.</p>
+    </div>
+    <div class="booking-wrap reveal">
+      <div class="form-row">
+        <div class="form-group">
+          <label>Prestation</label>
+          <select>
+            <option>Coiffure &amp; Coloration</option>
+            <option>Maquillage Professionnel</option>
+            <option>Soin Visage Signature</option>
+            <option>Ritual Spa Complet</option>
+            <option>Forfait Mariée</option>
+          </select>
+        </div>
+        <div class="form-group">
+          <label>Styliste</label>
+          <select>
+            <option>Pas de préférence</option>
+            <option>Sophia Laurent</option>
+            <option>Inès Moreau</option>
+            <option>Clara Dubois</option>
+          </select>
+        </div>
+      </div>
+      <div class="form-row">
+        <div class="form-group">
+          <label>Date souhaitée</label>
+          <input type="date"/>
+        </div>
+        <div class="form-group">
+          <label>Heure</label>
+          <select>
+            <option>09:00</option><option>09:30</option>
+            <option>10:00</option><option>10:30</option>
+            <option>11:00</option><option>11:30</option>
+            <option>14:00</option><option>14:30</option>
+            <option>15:00</option><option>15:30</option>
+            <option>16:00</option><option>17:00</option>
+          </select>
+        </div>
+      </div>
+      <div class="form-row">
+        <div class="form-group form-full">
+          <label>Votre prénom &amp; nom</label>
+          <input type="text" placeholder="Marie Dupont"/>
+        </div>
+      </div>
+      <div class="form-row">
+        <div class="form-group">
+          <label>Téléphone</label>
+          <input type="tel" placeholder="+33 6 00 00 00 00"/>
+        </div>
+        <div class="form-group">
+          <label>Email</label>
+          <input type="email" placeholder="marie@email.fr"/>
+        </div>
+      </div>
+      <button class="btn-book" id="btnBook">Confirmer ma réservation</button>
+      <p class="booking-note">Confirmation par SMS &amp; email · Annulation gratuite 24h avant</p>
+    </div>
+  </div>
+</section>
+
+<!-- ═══════════════════════════════════
+     TESTIMONIALS
+════════════════════════════════════ -->
+<section class="testimonials-section" id="testimonials">
+  <div class="container">
+    <div class="reveal">
+      <span class="section-label">Témoignages</span>
+      <h2 class="section-title">Ce qu'elles <em>disent</em></h2>
+    </div>
+    <div class="testimonials-track">
+
+      <div class="testimonial-card">
+        <div class="stars">★★★★★</div>
+        <p class="testimonial-text">Une expérience absolument magique. Sophia a transformé mes cheveux et sublimé ma confiance. Je ne vais nulle part ailleurs désormais.</p>
+        <div class="testimonial-author">
+          <img class="author-avatar" src="https://images.unsplash.com/photo-1544005313-94ddf0286df2?w=80&q=80" alt="Camille"/>
+          <div class="author-info">
+            <p>Camille Renaud</p>
+            <span>Cliente fidèle · 3 ans</span>
+          </div>
+        </div>
+      </div>
+
+      <div class="testimonial-card">
+        <div class="stars">★★★★★</div>
+        <p class="testimonial-text">Le soin visage signature est tout simplement divin. L'équipe est attentionnée, le cadre est luxueux. Un vrai moment de grâce parisienne.</p>
+        <div class="testimonial-author">
+          <img class="author-avatar" src="https://images.unsplash.com/photo-1531746020798-e6953c6e8e04?w=80&q=80" alt="Léa"/>
+          <div class="author-info">
+            <p>Léa Fontaine</p>
+            <span>Cliente · 1 an</span>
+          </div>
+        </div>
+      </div>
+
+      <div class="testimonial-card">
+        <div class="stars">★★★★★</div>
+        <p class="testimonial-text">Mon maquillage de mariée était parfait. Inès a compris exactement ce que je voulais dès la première rencontre. Je rayonnais.</p>
+        <div class="testimonial-author">
+          <img class="author-avatar" src="https://images.unsplash.com/photo-1502767089025-6572583495f9?w=80&q=80" alt="Sarah"/>
+          <div class="author-info">
+            <p>Sarah Martin</p>
+            <span>Mariée · Juin 2024</span>
+          </div>
+        </div>
+      </div>
+
+      <div class="testimonial-card">
+        <div class="stars">★★★★★</div>
+        <p class="testimonial-text">Le balayage que Clara a réalisé est d'une finesse extraordinaire. Des couleurs vivantes et naturelles. Exactement ce dont je rêvais.</p>
+        <div class="testimonial-author">
+          <img class="author-avatar" src="https://images.unsplash.com/photo-1519699047748-de8e457a634e?w=80&q=80" alt="Zoé"/>
+          <div class="author-info">
+            <p>Zoé Bernard</p>
+            <span>Cliente · 8 mois</span>
+          </div>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<!-- ═══════════════════════════════════
+     INSTAGRAM GRID
+════════════════════════════════════ -->
+<section class="instagram-section">
+  <div class="container">
+    <div class="text-center reveal">
+      <span class="section-label">Instagram</span>
+      <h2 class="section-title">Notre <em>univers</em></h2>
+    </div>
+    <div class="insta-grid reveal">
+      <div class="insta-item"><img src="https://images.unsplash.com/photo-1562322140-8baeececf3df?w=300&q=75" alt=""/><div class="insta-overlay">♡ 842</div></div>
+      <div class="insta-item"><img src="https://images.unsplash.com/photo-1595476108010-b4d1f102b1b1?w=300&q=75" alt=""/><div class="insta-overlay">♡ 1.2K</div></div>
+      <div class="insta-item"><img src="https://images.unsplash.com/photo-1487412947147-5cebf100ffc2?w=300&q=75" alt=""/><div class="insta-overlay">♡ 967</div></div>
+      <div class="insta-item"><img src="https://images.unsplash.com/photo-1522337360788-8b13dee7a37e?w=300&q=75" alt=""/><div class="insta-overlay">♡ 2.1K</div></div>
+      <div class="insta-item"><img src="https://images.unsplash.com/photo-1570172619644-dfd03ed5d881?w=300&q=75" alt=""/><div class="insta-overlay">♡ 743</div></div>
+      <div class="insta-item"><img src="https://images.unsplash.com/photo-1560066984-138dadb4c035?w=300&q=75" alt=""/><div class="insta-overlay">♡ 1.8K</div></div>
+    </div>
+    <p class="insta-handle">Suivez-nous → <a href="#">@lessencedebeaute</a></p>
+  </div>
+</section>
+
+<!-- ═══════════════════════════════════
+     INFO STRIP
+════════════════════════════════════ -->
+<div class="info-strip">
+  <div class="info-item">
+    <div class="info-icon">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
+        <path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0118 0z"/><circle cx="12" cy="10" r="3"/>
+      </svg>
+    </div>
+    <h4>Adresse</h4>
+    <p>12 Rue du Faubourg Saint-Honoré<br>75008 Paris</p>
+  </div>
+  <div class="info-item">
+    <div class="info-icon">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
+        <rect x="3" y="4" width="18" height="18" rx="2"/>
+        <line x1="16" y1="2" x2="16" y2="6"/><line x1="8" y1="2" x2="8" y2="6"/><line x1="3" y1="10" x2="21" y2="10"/>
+      </svg>
+    </div>
+    <h4>Horaires</h4>
+    <p>Lun–Sam : 9h–19h30<br>Dimanche : Sur RDV</p>
+  </div>
+  <div class="info-item">
+    <div class="info-icon">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
+        <path d="M22 16.92v3a2 2 0 01-2.18 2 19.79 19.79 0 01-8.63-3.07A19.5 19.5 0 013.07 9.81a19.79 19.79 0 01-3.07-8.72A2 2 0 012 0h3a2 2 0 012 1.72c.127.96.361 1.903.7 2.81a2 2 0 01-.45 2.11L6.09 7.91a16 16 0 006 6l1.27-1.27a2 2 0 012.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0122 14.92z"/>
+      </svg>
+    </div>
+    <h4>Contact</h4>
+    <p>+33 1 42 00 00 00<br>contact@lessencedebeaute.fr</p>
+  </div>
+</div>
+
+<!-- ═══════════════════════════════════
+     FOOTER
+════════════════════════════════════ -->
+<footer>
+  <div class="footer-logo">L'Essence de Beauté</div>
+  <div class="footer-copy">© 2025 · Tous droits réservés · Paris</div>
+</footer>
+
+<!-- ═══════════════════════════════════
+     WHATSAPP FLOATING BUTTON
+════════════════════════════════════ -->
+<a class="whatsapp-btn" href="https://wa.me/33600000000" target="_blank" title="Nous contacter sur WhatsApp">
+  <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+    <path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/>
+  </svg>
+</a>
+
+<!-- ═══════════════════════════════════
+     MOBILE BOTTOM NAV
+════════════════════════════════════ -->
+<nav class="bottom-nav" id="bottomNav">
+  <a href="#home" class="bottom-nav-item active" onclick="setActive(this)">
+    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
+      <path d="M3 9l9-7 9 7v11a2 2 0 01-2 2H5a2 2 0 01-2-2z"/>
+      <polyline points="9 22 9 12 15 12 15 22"/>
+    </svg>
+    Accueil
+  </a>
+  <a href="#services" class="bottom-nav-item" onclick="setActive(this)">
+    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
+      <path d="M6 3c0 3 2 5 2 8s-2 5-2 8M18 3c0 3-2 5-2 8s2 5 2 8"/>
+    </svg>
+    Services
+  </a>
+  <a href="#booking" class="bottom-nav-item bottom-nav-rdv" onclick="setActive(this)">
+    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
+      <rect x="3" y="4" width="18" height="18" rx="2"/>
+      <line x1="16" y1="2" x2="16" y2="6"/><line x1="8" y1="2" x2="8" y2="6"/><line x1="3" y1="10" x2="21" y2="10"/>
+    </svg>
+    Réserver
+  </a>
+  <a href="#testimonials" class="bottom-nav-item" onclick="setActive(this)">
+    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
+      <path d="M21 15a2 2 0 01-2 2H7l-4 4V5a2 2 0 012-2h14a2 2 0 012 2z"/>
+    </svg>
+    Avis
+  </a>
+</nav>
+
+<!-- ═══════════════════════════════════
+     JAVASCRIPT
+════════════════════════════════════ -->
+<script>
+// ── Hero BG Ken-Burns on load ──────────────────────
+window.addEventListener('load', () => {
+  document.getElementById('heroBg').classList.add('loaded');
+});
+
+// ── Scroll Reveal ──────────────────────────────────
+const observer = new IntersectionObserver((entries) => {
+  entries.forEach(e => {
+    if (e.isIntersecting) e.target.classList.add('visible');
+  });
+}, { threshold: 0.12 });
+document.querySelectorAll('.reveal').forEach(el => observer.observe(el));
+
+// ── Before / After Slider ──────────────────────────
+(function () {
+  const wrapper = document.getElementById('baWrapper');
+  const after   = document.getElementById('baAfter');
+  const handle  = document.getElementById('baHandle');
+  let dragging  = false;
+
+  function setPos(x) {
+    const rect = wrapper.getBoundingClientRect();
+    let pct = ((x - rect.left) / rect.width) * 100;
+    pct = Math.max(2, Math.min(98, pct));
+    after.style.clipPath = `inset(0 ${100 - pct}% 0 0)`;
+    handle.style.left = pct + '%';
+  }
+
+  wrapper.addEventListener('mousedown',  e => { dragging = true; setPos(e.clientX); });
+  window.addEventListener('mouseup',     () => dragging = false);
+  window.addEventListener('mousemove',   e => { if (dragging) setPos(e.clientX); });
+  wrapper.addEventListener('touchstart', e => { dragging = true; setPos(e.touches[0].clientX); }, { passive: true });
+  window.addEventListener('touchend',    () => dragging = false);
+  window.addEventListener('touchmove',   e => { if (dragging) setPos(e.touches[0].clientX); }, { passive: true });
+})();
+
+// ── Mobile Bottom Nav Active State ────────────────
+function setActive(el) {
+  document.querySelectorAll('.bottom-nav-item').forEach(i => i.classList.remove('active'));
+  el.classList.add('active');
+}
+
+// ── Header opacity on scroll ──────────────────────
+window.addEventListener('scroll', () => {
+  const h = document.getElementById('header');
+  h.style.background = window.scrollY > 60
+    ? 'rgba(254,252,248,0.97)'
+    : 'rgba(254,252,248,0.88)';
+});
+
+// ── Booking form feedback ──────────────────────────
+document.getElementById('btnBook').addEventListener('click', function (e) {
+  e.preventDefault();
+  this.textContent = '✓ Réservation envoyée !';
+  this.style.background = 'var(--gold)';
+  setTimeout(() => {
+    this.textContent = 'Confirmer ma réservation';
+    this.style.background = '';
+  }, 3000);
+});
+</script>
+
+</body>
+</html>
